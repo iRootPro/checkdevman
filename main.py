@@ -6,12 +6,12 @@ from tg import  create_telegram_bot
 
 
 def main():
-    TOKEN_DEVMAN = os.getenv('TOKEN_DEVMAN')
-    TOKEN_TELEGRAM = os.getenv('TOKEN_TELEGRAM')
-    CHATID_TELEGRAM = os.getenv('CHATID_TELEGRAM')
+    DEVMAN_TOKEN = os.getenv('DEVMAN_TOKEN')
+    TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+    TELEGRAM_CHATID = os.getenv('TELEGRAM_TOKEN')
 
-    message_for_lesson, lesson_fails = check(TOKEN_DEVMAN)
-    create_telegram_bot(TOKEN_TELEGRAM, CHATID_TELEGRAM, message_for_lesson, lesson_fails)
+    message_for_lesson, lesson_fails = check(DEVMAN_TOKEN)
+    create_telegram_bot(TELEGRAM_TOKEN, TELEGRAM_CHATID, message_for_lesson, lesson_fails)
 
 if __name__ == '__main__':
     load_dotenv()
