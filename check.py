@@ -18,10 +18,10 @@ def check(token):
         except requests.ConnectionError:
             continue
         if response['status'] == 'found':
-            lesson_name = response['new_attempts'][0]['lesson_title']
-            lesson_fails = response['new_attempts'][0]['is_negative']
+            lesson_chacked = response['new_attempts'][0]
+            lesson_name = lesson_chacked['lesson_title']
+            lesson_fails = lesson_chacked['is_negative']
             return f'Преподаватель проверил работу! "{lesson_name}"', lesson_fails
         params = {
             'timestamp': response['timestamp_to_request']
         }
-
