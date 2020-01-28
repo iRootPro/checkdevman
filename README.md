@@ -1,6 +1,6 @@
 # Check from DevMan
 
-Данный скрипт присылает сообщение в Telegram о статусе проверки домашнего задания с сайта [dvmn.org](https://dvmn.org/)
+Данный скрипт присылает сообщение в Telegram о статусе проверки домашнего задания с сайта [dvmn.org](https://dvmn.org/).
 
 ## Как установить
 
@@ -15,11 +15,11 @@ pip install -r requirements.txt
 Подробности: [virtualenv/venv](https://docs.python.org/3/library/venv.html).
 
 ## Необходимые настройки
-Для работы скрипта вам понадобится два токена: для вашего бота в Telegram и для сайта [dvmn.org](https://dvmn.org/)
+Для работы скрипта вам понадобится два токена: для вашего бота в Telegram и для сайта [dvmn.org](https://dvmn.org/).
 
 Для получения Telegram **TOKEN** найдите в Telegram @botfather и создайте новый бот. После того, как бот будет создан, вы получите токен.
 
-Для получения **TOKEN** для сайта dvmn.org перейдите по [ссылке](https://dvmn.org/api/docs/)
+Для получения **TOKEN** для сайта dvmn.org перейдите по [ссылке](https://dvmn.org/api/docs/).
 
 Также для работы скрипта необходим  **chat_id** в телеграм, чтобы именно вам бот присылал сообщения о статусе проверки задания.
 Для получения chat_id напишите в Telegram боту  @userinfobot.
