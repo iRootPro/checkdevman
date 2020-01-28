@@ -1,10 +1,12 @@
 import requests
 
+from tg import create_telegram_bot
 
-def check(token):
+
+def check(devman_token, telegram_token, telegram_chatid):
     url = 'https://dvmn.org/api/long_polling/'
     headers = {
-        'Authorization': f'Token {token}'
+        'Authorization': f'Token {devman_token}'
     }
     params = {
         'timestamp': ''
@@ -21,7 +23,9 @@ def check(token):
             lesson_chacked = response['new_attempts'][0]
             lesson_name = lesson_chacked['lesson_title']
             lesson_fails = lesson_chacked['is_negative']
-            return f'Преподаватель проверил работу! "{lesson_name}"', lesson_fails
+            message_for_lesson = f'Преподаватель проверил работу! "{lesson_name}"'
+            create_telegram_bot(telegram_token, telegram_chatid, message_for_lesson, lesson_fails)
+            continue
         params = {
             'timestamp': response['timestamp_to_request']
         }
