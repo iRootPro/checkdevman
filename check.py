@@ -14,7 +14,9 @@ def check(devman_token, telegram_token, telegram_chatid):
 
     while True:
         try:
-            response = requests.get(url, params=params, headers=headers).json()
+            response = requests.get(url, params=params, headers=headers)
+            response.raise_for_status()
+            response = response.json()
         except requests.exceptions.ReadTimeout:
             continue
         except requests.ConnectionError:
