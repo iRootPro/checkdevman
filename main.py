@@ -11,7 +11,7 @@ def main():
     TELEGRAM_CHATID = os.getenv('TELEGRAM_CHATID')
 
     message_for_lesson, lesson_fails = check(DEVMAN_TOKEN, TELEGRAM_TOKEN, TELEGRAM_CHATID)
-    # create_telegram_bot(TELEGRAM_TOKEN, TELEGRAM_CHATID, message_for_lesson, lesson_fails)
+    
 
 if __name__ == '__main__':
     load_dotenv()
