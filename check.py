@@ -22,11 +22,14 @@ def check(devman_token, telegram_token, telegram_chatid):
         except requests.ConnectionError:
             continue
         if response['status'] == 'found':
-            lesson_checked = response['new_attempts'][0]
-            lesson_name = lesson_checked['lesson_title']
-            lesson_fails = lesson_checked['is_negative']
+            lesson_info = response['new_attempts'][0]
+            lesson_name = lesson_info['lesson_title']
+            lesson_fails = lesson_info['is_negative']
             message_for_lesson = f'Преподаватель проверил работу! "{lesson_name}"'
             create_telegram_bot(telegram_token, telegram_chatid, message_for_lesson, lesson_fails)
+            params = {
+                'timestamp': response['last_attempt_timestamp']
+            }
             continue
         params = {
             'timestamp': response['timestamp_to_request']
