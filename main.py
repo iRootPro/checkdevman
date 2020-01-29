@@ -10,8 +10,8 @@ def main():
     TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
     TELEGRAM_CHATID = os.getenv('TELEGRAM_CHATID')
 
-    message_for_lesson, lesson_fails = check(DEVMAN_TOKEN, TELEGRAM_TOKEN, TELEGRAM_CHATID)
-    
+    check(DEVMAN_TOKEN, TELEGRAM_TOKEN, TELEGRAM_CHATID)
+
 
 if __name__ == '__main__':
     load_dotenv()
