@@ -8,7 +8,7 @@ load_dotenv()
 
 class TgHandler(logging.Handler):
     def __init__(self, telegram_token, chat_id):
-        logging.Handler.__init__(self)
+        super().__init__()
         self.telegram_token = telegram_token
         self.chat_id = chat_id
 
