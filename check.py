@@ -1,4 +1,5 @@
 import requests
+import time
 
 from tg import create_telegram_bot
 
@@ -18,6 +19,7 @@ def check(devman_token, telegram_token, telegram_chatid):
             response.raise_for_status()
             response = response.json()
         except requests.exceptions.ReadTimeout:
+            time.sleep(120)
             continue
         except requests.ConnectionError:
             continue
@@ -26,7 +28,8 @@ def check(devman_token, telegram_token, telegram_chatid):
             lesson_name = lesson_info['lesson_title']
             lesson_fails = lesson_info['is_negative']
             message_for_lesson = f'Преподаватель проверил работу! "{lesson_name}"'
-            create_telegram_bot(telegram_token, telegram_chatid, message_for_lesson, lesson_fails)
+            create_telegram_bot(telegram_token, telegram_chatid,
+                                message_for_lesson, lesson_fails)
             params = {
                 'timestamp': response['last_attempt_timestamp']
             }
