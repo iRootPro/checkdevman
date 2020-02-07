@@ -4,7 +4,6 @@ import logging.config
 
 from settings import logger_config
 from check import check
-from tg import  create_telegram_bot
 
 
 logging.config.dictConfig(logger_config)
