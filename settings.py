@@ -14,7 +14,6 @@ class TgHandler(logging.Handler):
 
     def emit(self, record):
         message = self.format(record)
-        # Здесь куда-то отправляем
         bot = telegram.Bot(token=self.telegram_token)
         bot.send_message(chat_id=self.chat_id, text=message)
 
